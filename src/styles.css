@@ -34,6 +34,10 @@
     line-height: 1.55;
   }
 
+  code {
+    overflow-wrap: anywhere;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
