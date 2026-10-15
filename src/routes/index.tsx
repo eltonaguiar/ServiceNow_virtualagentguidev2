@@ -4,8 +4,10 @@ import { createFileRoute } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({ component: Home });
 
 const stages = [
+  { id: "why", n: "Why", label: "Why Virtual Agent" },
   { id: "minimum", n: "00", label: "Minimum" },
   { id: "guided", n: "01", label: "Guided Setup" },
+  { id: "major", n: "★", label: "Major steps" },
   { id: "plan", n: "02", label: "Plan vs if-then" },
   { id: "install", n: "03", label: "Install" },
   { id: "brand", n: "04", label: "Brand" },
@@ -42,7 +44,16 @@ function Home() {
           >
             Virtual Agent implementation checklist — a deeper dive
           </a>{" "}
-          by Victor Chen (ServiceNow, 24 July 2022).
+          by Victor Chen (ServiceNow, 24 July 2022). For the project around
+          those clicks, use the community{" "}
+          <a
+            className="font-semibold text-teal underline"
+            href="https://www.servicenow.com/community/itsm-articles/itsm-pro-va-quick-start-guide-with-service-portal-or-microsoft/ta-p/2312069"
+          >
+            ITSM Pro VA Quick Start Guide with Service Portal or Microsoft Teams
+          </a>{" "}
+          (14 April 2021). The steps sit in the attached slide decks: initiate,
+          plan, execute, deliver, and close, on Service Portal or Teams.
         </p>
       </header>
 
@@ -64,6 +75,65 @@ function Home() {
           Print brief
         </button>
       </nav>
+
+      <Section id="why" n="Why" title="Why Virtual Agent">
+        <p>
+          Virtual Agent exists so a repeated request is answered without a
+          person, and so the person who is left gets the work the bot should
+          not finish. If you cannot name which of those you are buying, the
+          plugin list in the next section has nothing to aim at.
+        </p>
+        <p>
+          The 2020 ITSM Pro quick-start deck, slide 2, groups the case in
+          three. The percentages below are that slide’s citations. They are
+          not a reading from your instance, and “by 2020” is a forecast from
+          that year.
+        </p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <div className="rounded-xl border border-line bg-card p-4">
+            <h3 className="font-semibold text-ink">Agent and bot partnership</h3>
+            <p className="mt-2">
+              The deck cites 79% for improved agent productivity
+              (businesswire.com) and 65% of users saying a chatbot adds value
+              (Chatbots Magazine). The bot takes the repeatable ask. The agent
+              takes the rest, with the earlier messages still on the
+              interaction.
+            </p>
+          </div>
+          <div className="rounded-xl border border-line bg-card p-4">
+            <h3 className="font-semibold text-ink">The next channel</h3>
+            <p className="mt-2">
+              The same slide cites 80% of businesses treating chat as part of
+              the business by 2020 (act.com) and 67% expecting chatbots to
+              outperform mobile apps over the following five years (Chatbots
+              Magazine). That is why portal, Now Mobile, and Teams are the
+              same bot on more doors, not three projects.
+            </p>
+          </div>
+          <div className="rounded-xl border border-line bg-teal-soft p-4">
+            <h3 className="font-semibold text-ink">Operational impact</h3>
+            <ul className="mt-2 list-disc space-y-1 pl-5">
+              <li>
+                <strong>Incident deflection.</strong> A published topic closes
+                the request in the bot.
+              </li>
+              <li>
+                <strong>Increased productivity.</strong> Agents stop
+                retyping the status check.
+              </li>
+              <li>
+                <strong>Reduced MTTR.</strong> Only if the handoff lands on an
+                available agent. A transfer into an empty queue makes this
+                worse.
+              </li>
+              <li>
+                <strong>Availability, 24×7.</strong> The bot does not keep
+                office hours. The queue behind it still might.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Section>
 
       <Section id="minimum" n="00" title="Bare minimum to stand a bot up">
         <p>
@@ -185,6 +255,70 @@ function Home() {
           agent chat, and so on). Do them in the order shown.
         </p>
         <Crumb parts={["All", "Guided Setup", "Conversational Interfaces Guided Setup"]} />
+        <div id="major" className="major-steps scroll-mt-6 p-5 sm:p-6">
+          <h3 className="flex items-center gap-2 font-display text-2xl">
+            <span className="gold-star text-3xl leading-none" aria-hidden="true">
+              ★
+            </span>
+            Major steps
+          </h3>
+          <p className="mt-2">
+            Start at{" "}
+            <strong>Conversational Interfaces Guided Setup</strong>. The first
+            page has three tabs. Answer all three before you pick Quick or
+            Manual. Each answer adds or hides tasks.
+          </p>
+          <ul className="mt-3 list-disc space-y-1 pl-5">
+            <li>
+              <strong>General Setup</strong> — live agents, the bot, or both;
+              who holds admin, virtual_agent_admin, and awa_admin; which
+              channels; colors, logo, and the greeting lines.
+            </li>
+            <li>
+              <strong>Virtual Agent Setup</strong> — own words (NLU) or
+              keywords, plus whether Topic Recommendations should suggest
+              topics from real requests.
+            </li>
+            <li>
+              <strong>Agent Chat Setup</strong> — the live half: queues,
+              assignment, and who is allowed to take a transferred chat.
+            </li>
+          </ul>
+          <h4 className="mt-4 font-semibold">Own words, or keywords</h4>
+          <p className="mt-1">
+            If users should ask in their own words, pick an NLU provider and
+            the languages you will support. You maintain the models. They are
+            edited in Virtual Agent Designer or in NLU Workbench. You create
+            and keep these three:
+          </p>
+          <ul className="mt-2 list-disc space-y-1 pl-5">
+            <li>
+              <strong>Intent</strong> — what the user is looking for. One
+              intent per topic. Example: check the status of an incident.
+            </li>
+            <li>
+              <strong>Utterance</strong> — an example of how they might say
+              it. “Where is my ticket?” and “status of INC0012345” are two
+              utterances for that same intent.
+            </li>
+            <li>
+              <strong>Entity</strong> — the object or context the action
+              needs. In that example, the incident number is the entity.
+            </li>
+          </ul>
+          <p className="mt-2">
+            If you skip NLU, discovery uses the <strong>Keywords</strong> on
+            Topic Properties instead. Keywords do not replace intents. They
+            are the fallback when there is no model for that language.
+          </p>
+          <h4 className="mt-4 font-semibold">Topic Recommendations</h4>
+          <p className="mt-1">
+            If you want the product to suggest topics, name the common tasks
+            people already request (incidents, catalog items, service
+            requests). Topic Recommendations analyzes that data and ranks
+            topics worth publishing. It does not write the topic for you.
+          </p>
+        </div>
         <h3 className="font-semibold text-ink">Things to consider before you click through</h3>
         <p>
           Answer these on the setup page before you pick Quick or Manual. The
@@ -524,7 +658,14 @@ function Home() {
           . The file properties list him as creator (25 July 2022). It has one sheet and three columns: the to-do, a docs link, and a Done checkbox. There are no extra rows beyond the list below.
         </p>
         <p>
-          He assumes you already finished the earlier readiness checklist: Knowledge Base in shape, Service Catalog ready for the bot to order from, and a change process for what you publish. Do that before the list below.
+          He assumes you already finished the earlier readiness checklist: Knowledge Base in shape, Service Catalog ready for the bot to order from, and a change process for what you publish. Do that before the list below. The project sequence around this list is the{" "}
+          <a
+            className="font-semibold text-teal underline"
+            href="https://www.servicenow.com/community/itsm-articles/itsm-pro-va-quick-start-guide-with-service-portal-or-microsoft/ta-p/2312069"
+          >
+            ITSM Pro VA Quick Start Guide
+          </a>{" "}
+          (14 April 2021): initiate, plan, execute, deliver, and close, for Service Portal or Microsoft Teams. The steps are in the attached decks on that page. The community lists the author as Administrator, so this brief does not add a personal byline.
         </p>
         <ol className="list-decimal space-y-3 pl-5">
           {deeper.map((item) => (

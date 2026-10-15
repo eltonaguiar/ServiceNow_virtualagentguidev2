@@ -1,7 +1,12 @@
 import { b as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-DolrVXo3.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-D-d-5X3-.js
 var import_jsx_runtime = require_jsx_runtime();
 var stages = [
+	{
+		id: "why",
+		n: "Why",
+		label: "Why Virtual Agent"
+	},
 	{
 		id: "minimum",
 		n: "00",
@@ -11,6 +16,11 @@ var stages = [
 		id: "guided",
 		n: "01",
 		label: "Guided Setup"
+	},
+	{
+		id: "major",
+		n: "★",
+		label: "Major steps"
 	},
 	{
 		id: "plan",
@@ -97,7 +107,15 @@ function Home() {
 								children: "Virtual Agent implementation checklist — a deeper dive"
 							}),
 							" ",
-							"by Victor Chen (ServiceNow, 24 July 2022)."
+							"by Victor Chen (ServiceNow, 24 July 2022). For the project around those clicks, use the community",
+							" ",
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								className: "font-semibold text-teal underline",
+								href: "https://www.servicenow.com/community/itsm-articles/itsm-pro-va-quick-start-guide-with-service-portal-or-microsoft/ta-p/2312069",
+								children: "ITSM Pro VA Quick Start Guide with Service Portal or Microsoft Teams"
+							}),
+							" ",
+							"(14 April 2021). The steps sit in the attached slide decks: initiate, plan, execute, deliver, and close, on Service Portal or Teams."
 						]
 					})
 				]
@@ -119,6 +137,55 @@ function Home() {
 					className: "rounded-full bg-teal px-3 py-2 text-sm font-semibold text-card",
 					children: "Print brief"
 				})]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Section, {
+				id: "why",
+				n: "Why",
+				title: "Why Virtual Agent",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Virtual Agent exists so a repeated request is answered without a person, and so the person who is left gets the work the bot should not finish. If you cannot name which of those you are buying, the plugin list in the next section has nothing to aim at." }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "The 2020 ITSM Pro quick-start deck, slide 2, groups the case in three. The percentages below are that slide’s citations. They are not a reading from your instance, and “by 2020” is a forecast from that year." }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						className: "grid gap-3 sm:grid-cols-3",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "rounded-xl border border-line bg-card p-4",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "font-semibold text-ink",
+									children: "Agent and bot partnership"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-2",
+									children: "The deck cites 79% for improved agent productivity (businesswire.com) and 65% of users saying a chatbot adds value (Chatbots Magazine). The bot takes the repeatable ask. The agent takes the rest, with the earlier messages still on the interaction."
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "rounded-xl border border-line bg-card p-4",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "font-semibold text-ink",
+									children: "The next channel"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+									className: "mt-2",
+									children: "The same slide cites 80% of businesses treating chat as part of the business by 2020 (act.com) and 67% expecting chatbots to outperform mobile apps over the following five years (Chatbots Magazine). That is why portal, Now Mobile, and Teams are the same bot on more doors, not three projects."
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+								className: "rounded-xl border border-line bg-teal-soft p-4",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
+									className: "font-semibold text-ink",
+									children: "Operational impact"
+								}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+									className: "mt-2 list-disc space-y-1 pl-5",
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Incident deflection." }), " A published topic closes the request in the bot."] }),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Increased productivity." }), " Agents stop retyping the status check."] }),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Reduced MTTR." }), " Only if the handoff lands on an available agent. A transfer into an empty queue makes this worse."] }),
+										/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Availability, 24×7." }), " The bot does not keep office hours. The queue behind it still might."] })
+									]
+								})]
+							})
+						]
+					})
+				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Section, {
 				id: "minimum",
@@ -235,6 +302,69 @@ function Home() {
 						"Guided Setup",
 						"Conversational Interfaces Guided Setup"
 					] }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+						id: "major",
+						className: "major-steps scroll-mt-6 p-5 sm:p-6",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h3", {
+								className: "flex items-center gap-2 font-display text-2xl",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
+									className: "gold-star text-3xl leading-none",
+									"aria-hidden": "true",
+									children: "★"
+								}), "Major steps"]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "mt-2",
+								children: [
+									"Start at",
+									" ",
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Conversational Interfaces Guided Setup" }),
+									". The first page has three tabs. Answer all three before you pick Quick or Manual. Each answer adds or hides tasks."
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+								className: "mt-3 list-disc space-y-1 pl-5",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "General Setup" }), " — live agents, the bot, or both; who holds admin, virtual_agent_admin, and awa_admin; which channels; colors, logo, and the greeting lines."] }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Virtual Agent Setup" }), " — own words (NLU) or keywords, plus whether Topic Recommendations should suggest topics from real requests."] }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Agent Chat Setup" }), " — the live half: queues, assignment, and who is allowed to take a transferred chat."] })
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+								className: "mt-4 font-semibold",
+								children: "Own words, or keywords"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1",
+								children: "If users should ask in their own words, pick an NLU provider and the languages you will support. You maintain the models. They are edited in Virtual Agent Designer or in NLU Workbench. You create and keep these three:"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("ul", {
+								className: "mt-2 list-disc space-y-1 pl-5",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Intent" }), " — what the user is looking for. One intent per topic. Example: check the status of an incident."] }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Utterance" }), " — an example of how they might say it. “Where is my ticket?” and “status of INC0012345” are two utterances for that same intent."] }),
+									/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Entity" }), " — the object or context the action needs. In that example, the incident number is the entity."] })
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+								className: "mt-2",
+								children: [
+									"If you skip NLU, discovery uses the ",
+									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: "Keywords" }),
+									" on Topic Properties instead. Keywords do not replace intents. They are the fallback when there is no model for that language."
+								]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", {
+								className: "mt-4 font-semibold",
+								children: "Topic Recommendations"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "mt-1",
+								children: "If you want the product to suggest topics, name the common tasks people already request (incidents, catalog items, service requests). Topic Recommendations analyzes that data and ranks topics worth publishing. It does not write the topic for you."
+							})
+						]
+					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", {
 						className: "font-semibold text-ink",
 						children: "Things to consider before you click through"
@@ -1054,7 +1184,17 @@ function Home() {
 						}),
 						". The file properties list him as creator (25 July 2022). It has one sheet and three columns: the to-do, a docs link, and a Done checkbox. There are no extra rows beyond the list below."
 					] }),
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "He assumes you already finished the earlier readiness checklist: Knowledge Base in shape, Service Catalog ready for the bot to order from, and a change process for what you publish. Do that before the list below." }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { children: [
+						"He assumes you already finished the earlier readiness checklist: Knowledge Base in shape, Service Catalog ready for the bot to order from, and a change process for what you publish. Do that before the list below. The project sequence around this list is the",
+						" ",
+						/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+							className: "font-semibold text-teal underline",
+							href: "https://www.servicenow.com/community/itsm-articles/itsm-pro-va-quick-start-guide-with-service-portal-or-microsoft/ta-p/2312069",
+							children: "ITSM Pro VA Quick Start Guide"
+						}),
+						" ",
+						"(14 April 2021): initiate, plan, execute, deliver, and close, for Service Portal or Microsoft Teams. The steps are in the attached decks on that page. The community lists the author as Administrator, so this brief does not add a personal byline."
+					] }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ol", {
 						className: "list-decimal space-y-3 pl-5",
 						children: deeper.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { children: [

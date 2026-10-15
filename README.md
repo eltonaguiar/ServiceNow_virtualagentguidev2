@@ -4,7 +4,26 @@ From plugin activation through continual monitoring. Each stage is the navigator
 
 The configuration to-dos follow [Virtual Agent implementation checklist — a deeper dive](https://www.servicenow.com/community/virtual-agent-nlu-articles/virtual-agent-implementation-checklist-a-deeper-dive/ta-p/2306564) by **Victor Chen** (ServiceNow, published 24 July 2022, edited 24 March 2023). His workbook is in this repo as [VA checklist - deeper dive.xlsx](public/VA-checklist-deeper-dive.xlsx). The file properties list him as creator (25 July 2022). It has one sheet and three columns: the to-do, a docs link, and a Done checkbox. There are no extra rows beyond the list in section 11. This guide adds the navigator path. It is not a replacement for his write-up.
 
+For the project around those clicks, use the community [ITSM Pro VA Quick Start Guide with Service Portal or Microsoft Teams](https://www.servicenow.com/community/itsm-articles/itsm-pro-va-quick-start-guide-with-service-portal-or-microsoft/ta-p/2312069) (published 14 April 2021). The steps sit in the attached slide decks: initiate, plan, execute, deliver, and close, on Service Portal or Teams. The community page lists the author as Administrator. This brief does not invent a personal byline. It is one article in a series. Use the Back and Next links at the bottom of that page for the rest.
+
 The chat client is the Virtual Agent surface. It is not Agent Client Collector.
+
+## Why Virtual Agent
+
+Virtual Agent exists so a repeated request is answered without a person, and so the person who is left gets the work the bot should not finish. If you cannot name which of those you are buying, the plugin list below has nothing to aim at.
+
+The 2020 ITSM Pro quick-start deck, slide 2, groups the case in three. The percentages below are that slide’s citations. They are not a reading from your instance, and “by 2020” is a forecast from that year.
+
+**Agent and bot partnership.** The deck cites 79% for improved agent productivity (businesswire.com) and 65% of users saying a chatbot adds value (Chatbots Magazine). The bot takes the repeatable ask. The agent takes the rest, with the earlier messages still on the interaction.
+
+**The next channel.** The same slide cites 80% of businesses treating chat as part of the business by 2020 (act.com) and 67% expecting chatbots to outperform mobile apps over the following five years (Chatbots Magazine). That is why portal, Now Mobile, and Teams are the same bot on more doors, not three projects.
+
+**Operational impact at ServiceNow.**
+
+- **Incident deflection.** A published topic closes the request in the bot.
+- **Increased productivity.** Agents stop retyping the status check.
+- **Reduced MTTR.** Only if the handoff lands on an available agent. A transfer into an empty queue makes this worse.
+- **Availability, 24×7.** The bot does not keep office hours. The queue behind it still might.
 
 ## 00 · Bare minimum to stand a bot up
 
@@ -44,6 +63,28 @@ Skip mobile, Teams, custom branding, and extra languages until the portal conver
 Guided Setup does not install a generic checklist. A short survey reads your entitlements and your answers, then builds the task list you actually see. Tasks sit in categories (plugins, chat clients, agent chat, and so on). Do them in the order shown.
 
 `All › Guided Setup › Conversational Interfaces Guided Setup`
+
+## ★ Major steps
+
+Start at **Conversational Interfaces Guided Setup**. The first page has three tabs. Answer all three before you pick Quick or Manual. Each answer adds or hides tasks.
+
+- **General Setup** — live agents, the bot, or both; who holds admin, virtual_agent_admin, and awa_admin; which channels; colors, logo, and the greeting lines.
+- **Virtual Agent Setup** — own words (NLU) or keywords, plus whether Topic Recommendations should suggest topics from real requests.
+- **Agent Chat Setup** — the live half: queues, assignment, and who is allowed to take a transferred chat.
+
+### Own words, or keywords
+
+If users should ask in their own words, pick an NLU provider and the languages you will support. You maintain the models. They are edited in Virtual Agent Designer or in NLU Workbench. You create and keep these three:
+
+- **Intent** — what the user is looking for. One intent per topic. Example: check the status of an incident.
+- **Utterance** — an example of how they might say it. “Where is my ticket?” and “status of INC0012345” are two utterances for that same intent.
+- **Entity** — the object or context the action needs. In that example, the incident number is the entity.
+
+If you skip NLU, discovery uses the **Keywords** on Topic Properties instead. Keywords do not replace intents. They are the fallback when there is no model for that language.
+
+### Topic Recommendations
+
+If you want the product to suggest topics, name the common tasks people already request (incidents, catalog items, service requests). Topic Recommendations analyzes that data and ranks topics worth publishing. It does not write the topic for you.
 
 ### Things to consider before you click through
 
@@ -275,7 +316,7 @@ Chen’s three places, in this order: the preview on **Conversational Interfaces
 
 ## 11 · Deeper-dive checklist
 
-Victor Chen’s to-dos, with the path under each one. The attached workbook is the same list, plus a docs link and a Done checkbox on each row. He assumes the earlier readiness work is already done: Knowledge Base in shape, Service Catalog ready for the bot to order from, and a change process for what you publish.
+Victor Chen’s to-dos, with the path under each one. The attached workbook is the same list, plus a docs link and a Done checkbox on each row. He assumes the earlier readiness work is already done: Knowledge Base in shape, Service Catalog ready for the bot to order from, and a change process for what you publish. The project sequence around this list is the [ITSM Pro VA Quick Start Guide with Service Portal or Microsoft Teams](https://www.servicenow.com/community/itsm-articles/itsm-pro-va-quick-start-guide-with-service-portal-or-microsoft/ta-p/2312069) (14 April 2021): initiate, plan, execute, deliver, and close. The steps are in the attached decks. The community lists the author as Administrator.
 
 1. **Activate the Virtual Agent plugins.** `All › Conversational Interfaces › Home`. Glide Virtual Agent (`com.glide.cs.chatbot`), plus the **Omni-Experience Standard Feature Set** store app.
 2. **Add the bot to the web portal.** `All › Conversational Interfaces › Home › Add to portal`, or `All › Service Portal › Agent Chat` (`sp_agent_chat_config`). Open `/sp` as a requester.
